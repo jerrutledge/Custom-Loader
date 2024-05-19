@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://dq5wfu8rckyon"]
+
+[ext_resource type="Script" path="res://CameraRotate.gd" id="1_uc1s8"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_tmjuq"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_pc6qu"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mvxml"]
+size = Vector2(50, 50)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vp7sx"]
+
+[sub_resource type="Sky" id="Sky_woajd"]
+sky_material = SubResource("ProceduralSkyMaterial_vp7sx")
+
+[sub_resource type="Environment" id="Environment_eujkw"]
+background_mode = 2
+sky = SubResource("Sky_woajd")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrismMesh_tmjuq")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="MeshInstance3D"]
+shape = SubResource("SeparationRayShape3D_pc6qu")
+spring_length = 3.0
+script = ExtResource("1_uc1s8")
+
+[node name="Camera3D" type="Camera3D" parent="MeshInstance3D/SpringArm3D"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.87865, 0)
+light_energy = 5.0
+shadow_enabled = true
+spot_range = 6.34017
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.591826, 0)
+mesh = SubResource("PlaneMesh_mvxml")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eujkw")
