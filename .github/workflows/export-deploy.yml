@@ -34,5 +34,5 @@ jobs:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: html5
           ITCH_GAME: proof-of-concept
-          ITCH_USER: cliffraven.itch.io
+          ITCH_USER: cliffraven
           PACKAGE: build/web
