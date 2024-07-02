@@ -33,6 +33,6 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: html5
-          ITCH_GAME: proof-of-concept
+          ITCH_GAME: godot-custom-loading-screen
           ITCH_USER: cliffraven
           PACKAGE: build/web
